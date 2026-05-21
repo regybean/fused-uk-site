@@ -2,8 +2,7 @@
 import Layout from "@/layouts/main.astro"
 import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { BookNowButton } from "@/components/site/BookNowButton"
+import { BookNowCardTrigger } from "@/components/site/BookNowCardTrigger"
 import { MAILTO, TEL, PHONE } from "@/lib/contact"
 ---
 
@@ -29,8 +28,9 @@ import { MAILTO, TEL, PHONE } from "@/lib/contact"
       {/* 1. Email */}
       <Card className="h-full">
         <CardContent className="flex h-full flex-col gap-4 p-8">
-          <div
-            class="bg-accent text-accent-foreground inline-flex size-12 items-center justify-center rounded-none"
+          <a
+            href={MAILTO}
+            class="bg-accent text-accent-foreground hover:bg-accent/80 inline-flex size-12 items-center justify-center rounded-none transition-colors"
           >
             <svg
               width="22"
@@ -45,28 +45,29 @@ import { MAILTO, TEL, PHONE } from "@/lib/contact"
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-          </div>
+          </a>
           <div class="text-primary text-xs font-semibold tracking-widest uppercase">
             Recommended
           </div>
-          <h2 class="text-2xl font-semibold tracking-tight">Email us</h2>
+          <a
+            href={MAILTO}
+            class="text-2xl font-semibold tracking-tight hover:text-primary"
+          >
+            Email us
+          </a>
           <p class="text-muted-foreground text-sm leading-relaxed">
             Send us the details of your job and we'll come back to you fast
             with a price.
           </p>
-          <div class="mt-auto pt-2">
-            <Button asChild client:load size="lg" className="px-6">
-              <a href={MAILTO}>Email us</a>
-            </Button>
-          </div>
         </CardContent>
       </Card>
 
       {/* 2. Call */}
       <Card className="h-full">
         <CardContent className="flex h-full flex-col gap-4 p-8">
-          <div
-            class="bg-secondary text-secondary-foreground inline-flex size-12 items-center justify-center rounded-none"
+          <a
+            href={TEL}
+            class="bg-secondary text-secondary-foreground hover:bg-secondary/80 inline-flex size-12 items-center justify-center rounded-none transition-colors"
           >
             <svg
               width="22"
@@ -82,7 +83,7 @@ import { MAILTO, TEL, PHONE } from "@/lib/contact"
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"
               />
             </svg>
-          </div>
+          </a>
           <div class="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
             Call us
           </div>
@@ -101,36 +102,11 @@ import { MAILTO, TEL, PHONE } from "@/lib/contact"
       {/* 3. Book Now */}
       <Card className="h-full">
         <CardContent className="flex h-full flex-col gap-4 p-8">
-          <div
-            class="bg-primary text-primary-foreground inline-flex size-12 items-center justify-center rounded-none"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-          </div>
-          <div class="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
-            Book today
-          </div>
-          <h3 class="text-2xl font-semibold tracking-tight">Same-day callout</h3>
+          <BookNowCardTrigger client:load />
           <p class="text-muted-foreground text-sm leading-relaxed">
             Need it done now? Get straight on the books — flexible after-hours
             and weekend testing across the UK.
           </p>
-          <div class="mt-auto pt-2">
-            <BookNowButton client:load size="lg" />
-          </div>
         </CardContent>
       </Card>
     </div>

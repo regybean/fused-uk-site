@@ -1,11 +1,9 @@
 import * as React from "react"
-import { MenuIcon } from "lucide-react"
+import { MenuIcon, ArrowUpRightIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet"
@@ -33,28 +31,61 @@ export function MobileNav() {
           <MenuIcon className="size-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="flex w-72 flex-col bg-neutral-950 text-white">
-        <SheetHeader>
-          <SheetTitle className="text-white">Menu</SheetTitle>
-        </SheetHeader>
-        <nav className="mt-2 flex flex-col">
-          {links.map((l) => (
+      <SheetContent
+        side="right"
+        showCloseButton={false}
+        className="flex w-80 flex-col gap-0 border-l border-white/10 bg-neutral-950 p-0 text-white"
+      >
+        <div className="relative flex items-center justify-between border-b border-white/10 px-6 pt-5 pb-4">
+          <span className="text-[10px] font-medium tracking-[0.28em] text-white/40 uppercase">
+            Navigation
+          </span>
+          <SheetClose asChild>
+            <button
+              aria-label="Close menu"
+              className="group flex items-center gap-2 text-[11px] font-medium tracking-[0.18em] text-white/60 uppercase transition-colors hover:text-white"
+            >
+              Close
+              <span className="flex size-6 items-center justify-center border border-white/20 transition-colors group-hover:border-primary group-hover:text-primary">
+                <span aria-hidden className="text-base leading-none">×</span>
+              </span>
+            </button>
+          </SheetClose>
+        </div>
+
+        <nav className="relative flex flex-1 flex-col px-6 pt-6">
+          {links.map((l, i) => (
             <SheetClose asChild key={l.href}>
               <a
                 href={l.href}
-                className="border-b border-white/10 py-3 text-center text-base font-medium tracking-tight hover:text-primary"
+                className="group flex items-baseline gap-4 border-b border-white/5 py-4 transition-colors last:border-b-0 hover:text-primary"
               >
-                {l.label}
+                <span className="text-[10px] font-medium tracking-widest text-white/30 tabular-nums group-hover:text-primary/70">
+                  0{i + 1}
+                </span>
+                <span className="font-heading flex-1 text-lg font-medium tracking-tight">
+                  {l.label}
+                </span>
+                <ArrowUpRightIcon className="size-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
               </a>
             </SheetClose>
           ))}
         </nav>
-        <div className="mt-auto flex flex-col gap-3 pb-4">
-          <div className="flex items-center justify-between text-sm text-white/70">
-            <span>Theme</span>
+
+        <div className="relative border-t border-white/10 bg-white/2 px-6 pt-5 pb-6">
+          <div
+            aria-hidden
+            className="absolute inset-x-6 top-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"
+          />
+          <div className="flex items-center justify-between pb-5">
+            <span className="text-[10px] font-medium tracking-[0.24em] text-white/40 uppercase">
+              Appearance
+            </span>
             <ThemeToggle />
           </div>
-          <BookNowButton size="lg" className="w-full px-6 text-base" />
+          <div className="flex justify-center">
+            <BookNowButton size="lg" className="px-10 text-sm tracking-wide" />
+          </div>
         </div>
       </SheetContent>
     </Sheet>
