@@ -4,9 +4,7 @@ import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { BookNowButton } from "@/components/site/BookNowButton"
-
-const mailto =
-  "mailto:sales@fuseduk.co.uk?subject=PAT%20Testing%20Quote%20Request&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0AAddress%3A%0AType%20of%20business%3A%0ATest%20due%20date%3A%0ANumber%20of%20tests%20required%3A%0AHow%20did%20you%20hear%20about%20us%3F%3A%0A"
+import { MAILTO, TEL, PHONE } from "@/lib/contact"
 ---
 
 <Layout title="Get a Quote — FUSED UK">
@@ -29,46 +27,46 @@ const mailto =
 
     <div class="mt-14 grid gap-6 md:grid-cols-3">
       {/* 1. Email */}
-      <Card className="md:col-span-3">
-        <CardContent className="flex flex-col items-start gap-6 p-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <div class="text-primary text-xs font-semibold tracking-widest uppercase">
-              Recommended
-            </div>
-            <h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
-              Email us
-            </h2>
-            <p class="text-muted-foreground mt-3 max-w-md leading-relaxed">
-              Open a pre-filled quote request in your email client — fill in the
-              blanks and send.
-            </p>
+      <Card className="h-full">
+        <CardContent className="flex h-full flex-col gap-4 p-8">
+          <div
+            class="bg-accent text-accent-foreground inline-flex size-12 items-center justify-center rounded-none"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
           </div>
-          <Button asChild client:load size="lg" className="px-6">
-            <a href={mailto}>
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-              Open email template
-            </a>
-          </Button>
+          <div class="text-primary text-xs font-semibold tracking-widest uppercase">
+            Recommended
+          </div>
+          <h2 class="text-2xl font-semibold tracking-tight">Email us</h2>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            Send us the details of your job and we'll come back to you fast
+            with a price.
+          </p>
+          <div class="mt-auto pt-2">
+            <Button asChild client:load size="lg" className="px-6">
+              <a href={MAILTO}>Email us</a>
+            </Button>
+          </div>
         </CardContent>
       </Card>
 
       {/* 2. Call */}
-      <Card>
+      <Card className="h-full">
         <CardContent className="flex h-full flex-col gap-4 p-8">
           <div
-            class="bg-secondary text-secondary-foreground inline-flex size-12 items-center justify-center rounded-full"
+            class="bg-secondary text-secondary-foreground inline-flex size-12 items-center justify-center rounded-none"
           >
             <svg
               width="22"
@@ -89,10 +87,10 @@ const mailto =
             Call us
           </div>
           <a
-            href="tel:07729577307"
-            class="text-3xl font-semibold tracking-tight hover:text-primary"
+            href={TEL}
+            class="text-2xl font-semibold tracking-tight hover:text-primary"
           >
-            07729 577307
+            {PHONE}
           </a>
           <p class="text-muted-foreground text-sm leading-relaxed">
             One ring and you're talking to an engineer, not an inbox.
@@ -101,10 +99,10 @@ const mailto =
       </Card>
 
       {/* 3. Book Now */}
-      <Card className="md:col-span-2">
+      <Card className="h-full">
         <CardContent className="flex h-full flex-col gap-4 p-8">
           <div
-            class="bg-primary text-primary-foreground inline-flex size-12 items-center justify-center rounded-full"
+            class="bg-primary text-primary-foreground inline-flex size-12 items-center justify-center rounded-none"
           >
             <svg
               width="22"

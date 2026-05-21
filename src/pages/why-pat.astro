@@ -4,6 +4,7 @@ import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Button } from "@/components/ui/button"
 import { BookNowButton } from "@/components/site/BookNowButton"
 import { LandlordAccordion } from "@/components/site/LandlordAccordion"
+import { MAILTO } from "@/lib/contact"
 
 const hsBullets = [
   "Where appliances are used by employees.",
@@ -159,7 +160,7 @@ const hsBullets = [
           </a>
           or email us via
           <a
-            href="mailto:sales@fuseduk.co.uk"
+            href={MAILTO}
             class="text-primary font-semibold hover:underline"
           >
             sales@fuseduk.co.uk
@@ -168,8 +169,8 @@ const hsBullets = [
       </section>
 
       <div class="flex flex-wrap items-center gap-3 pt-4">
-        <BookNowButton client:load size="lg" />
-        <Button asChild client:load size="lg" variant="outline">
+        <BookNowButton client:load size="lg" className="text-sm" />
+        <Button asChild client:load size="lg" variant="outline" className="text-sm">
           <a href="/quote">Get a Quote</a>
         </Button>
       </div>

@@ -3,6 +3,7 @@ import Layout from "@/layouts/main.astro"
 import TickList from "@/components/site/TickList.astro"
 import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Card, CardContent } from "@/components/ui/card"
+import { MAILTO } from "@/lib/contact"
 
 const offer = [
   "Cost-effective solutions throughout the UK, particularly Leeds, Wakefield, and West Yorkshire",
@@ -32,7 +33,7 @@ const contact = [
   {
     label: "Email",
     value: "sales@fuseduk.co.uk",
-    href: "mailto:sales@fuseduk.co.uk",
+    href: MAILTO,
     color: "bg-accent text-accent-foreground",
     icon: "mail",
   },
@@ -90,7 +91,7 @@ const contact = [
     <div class="mt-20 grid gap-12 md:grid-cols-2 md:gap-16">
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">What we offer</h2>
-        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <div class="bg-primary mt-3 h-1 w-20"></div>
         <TickList items={offer} variant="brand" class="mt-6" />
       </div>
 
@@ -98,7 +99,7 @@ const contact = [
         <h2 class="text-2xl font-semibold tracking-tight">
           DBS-checked engineers
         </h2>
-        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <div class="bg-primary mt-3 h-1 w-20"></div>
         <div class="mt-6 flex items-start gap-4">
           <img
             src="/disclosure-and-barring-service.png"
@@ -113,7 +114,7 @@ const contact = [
     <div class="mt-20 grid gap-12 md:grid-cols-2 md:gap-16">
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">Who we work with</h2>
-        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <div class="bg-primary mt-3 h-1 w-20"></div>
         <p class="text-muted-foreground mt-6 leading-relaxed">
           The company serves GP surgeries, schools, nurseries, shops,
           restaurants, and hairdressers.
@@ -122,7 +123,7 @@ const contact = [
 
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">Service features</h2>
-        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <div class="bg-primary mt-3 h-1 w-20"></div>
         <TickList items={features} variant="brand" class="mt-6" />
       </div>
     </div>
@@ -142,7 +143,7 @@ const contact = [
                 <CardContent className="flex h-full flex-col gap-4 p-6">
                   <span
                     class:list={[
-                      "inline-flex size-12 items-center justify-center rounded-full",
+                      "inline-flex size-12 items-center justify-center rounded-none",
                       c.color,
                     ]}
                   >

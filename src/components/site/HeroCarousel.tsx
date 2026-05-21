@@ -34,12 +34,12 @@ export function HeroCarousel() {
     <Carousel
       opts={{ loop: true }}
       plugins={plugins}
-      className="overflow-hidden"
+      className="h-full overflow-hidden"
     >
-      <CarouselContent className="ml-0">
+      <CarouselContent className="ml-0 h-full" viewportClassName="h-full">
         {images.map((img) => (
-          <CarouselItem key={img.src} className="pl-0">
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-neutral-900 sm:aspect-[21/9]">
+          <CarouselItem key={img.src} className="h-full pl-0">
+            <div className="relative h-full w-full overflow-hidden bg-neutral-900">
               <img
                 src={img.src}
                 alt={img.alt}

@@ -42,7 +42,7 @@ export function MobileNav() {
             <SheetClose asChild key={l.href}>
               <a
                 href={l.href}
-                className="border-b border-white/10 py-3 text-base font-medium tracking-tight hover:text-primary"
+                className="border-b border-white/10 py-3 text-center text-base font-medium tracking-tight hover:text-primary"
               >
                 {l.label}
               </a>
@@ -54,7 +54,7 @@ export function MobileNav() {
             <span>Theme</span>
             <ThemeToggle />
           </div>
-          <BookNowButton size="lg" className="w-full" />
+          <BookNowButton size="lg" className="w-full px-6 text-base" />
         </div>
       </SheetContent>
     </Sheet>

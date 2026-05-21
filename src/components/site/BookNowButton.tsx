@@ -10,6 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import type { VariantProps } from "class-variance-authority"
+import { PHONE, TEL, EMAIL, MAILTO } from "@/lib/contact"
 
 type BookNowProps = {
   variant?: VariantProps<typeof buttonVariants>["variant"]
@@ -17,10 +18,6 @@ type BookNowProps = {
   className?: string
   label?: string
 }
-
-const PHONE = "07729 577307"
-const TEL = "tel:07729577307"
-const EMAIL = "sales@fuseduk.co.uk"
 
 export function BookNowButton({
   variant = "default",
@@ -72,7 +69,7 @@ export function BookNowButton({
             </div>
           </a>
           <a
-            href={`mailto:${EMAIL}`}
+            href={MAILTO}
             className="hover:bg-muted flex items-center gap-3 border p-4 transition-colors"
           >
             <MailIcon className="text-primary size-5" />
