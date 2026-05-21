@@ -2,28 +2,40 @@
 interface Props {
   items: string[]
   class?: string
+  variant?: "tick" | "brand"
 }
-const { items, class: className } = Astro.props
+const { items, class: className, variant = "tick" } = Astro.props
+const brandColors = ["bg-secondary", "bg-accent", "bg-primary"]
 ---
 
 <ul class:list={["space-y-2.5", className]}>
   {
-    items.map((item) => (
+    items.map((item, i) => (
       <li class="flex items-start gap-3 text-sm leading-relaxed sm:text-base">
-        <span class="bg-primary/10 text-primary mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full">
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </span>
+        {variant === "brand" ? (
+          <span
+            class:list={[
+              "mt-1 inline-block size-4 shrink-0",
+              brandColors[i % 3],
+            ]}
+            aria-hidden="true"
+          />
+        ) : (
+          <span class="bg-primary/10 text-primary mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+        )}
         <span>{item}</span>
       </li>
     ))
