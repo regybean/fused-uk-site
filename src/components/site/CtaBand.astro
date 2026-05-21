@@ -1,0 +1,29 @@
+---
+import { BookNowButton } from "./BookNowButton"
+import { Button } from "@/components/ui/button"
+---
+
+<section class="bg-neutral-950 text-white">
+  <div class="mx-auto max-w-[1200px] px-4 py-16 text-center md:px-6 md:py-20">
+    <p
+      class="text-primary text-xs font-semibold tracking-[0.2em] uppercase"
+    >
+      Ready when you are
+    </p>
+    <a
+      href="tel:07729577307"
+      class="mt-4 inline-block text-3xl font-semibold tracking-tight hover:text-primary md:text-5xl"
+    >
+      07729 577307
+    </a>
+    <p class="mt-3 text-sm text-white/60">
+      Same-day callouts · UK-wide · DBS-checked engineers
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <BookNowButton client:load size="lg" />
+      <Button asChild client:load size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
+        <a href="/quote">Get a Quote</a>
+      </Button>
+    </div>
+  </div>
+</section>

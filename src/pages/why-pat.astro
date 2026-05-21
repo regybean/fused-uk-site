@@ -1,0 +1,178 @@
+---
+import Layout from "@/layouts/main.astro"
+import Eyebrow from "@/components/site/Eyebrow.astro"
+import { Button } from "@/components/ui/button"
+import { BookNowButton } from "@/components/site/BookNowButton"
+import { LandlordAccordion } from "@/components/site/LandlordAccordion"
+
+const hsBullets = [
+  "Where appliances are used by employees.",
+  "Where the public may use appliances in establishments such as hospitals, schools, hotels, shops etc.",
+  "Where appliances are supplied or hired.",
+  "Where appliances are repaired or serviced.",
+]
+---
+
+<Layout title="Why PAT Test? — FUSED UK">
+  <section class="border-b">
+    <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-20">
+      <Eyebrow>The case for testing</Eyebrow>
+      <h1 class="mt-3 text-center text-4xl font-semibold tracking-tight md:text-5xl">
+        Why PAT test?
+      </h1>
+    </div>
+  </section>
+
+  <article class="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
+    <div class="prose-lg text-foreground space-y-12">
+      <p class="border-primary border-l-4 pl-6 text-lg leading-relaxed">
+        Portable appliance testing was introduced to enable companies and
+        organisations to comply with the Electricity at Work regulations. <span
+          class="font-semibold"
+        >
+          "The Electricity at Work Regulations requires that employers maintain
+          their electrical systems at work to prevent any danger to anyone.
+          This is a legal requirement."
+        </span>
+      </p>
+
+      <section>
+        <h2 class="text-2xl font-semibold tracking-tight">Legislation.</h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <p class="text-muted-foreground mt-6 leading-relaxed">
+          The legislation of specific relevance to electrical maintenance is
+          the Health &amp; Safety at Work Act 1974, the Management of Health
+          &amp; Safety at Work Regulations 1999, the Electricity at Work
+          Regulations 1989, the Workplace (Health, Safety and Welfare)
+          Regulations 1992 and the Provision and Use of Work Equipment
+          Regulations 1998.
+        </p>
+        <p class="text-muted-foreground mt-4 leading-relaxed">
+          This includes the self employed.
+        </p>
+        <p class="text-muted-foreground mt-4 leading-relaxed">
+          The Health &amp; Safety at Work Act (1974) places such an obligation
+          in the following circumstances:
+        </p>
+        <ul class="mt-4 space-y-2.5">
+          {
+            hsBullets.map((b) => (
+              <li class="flex items-start gap-3 text-base leading-relaxed">
+                <span class="bg-primary/10 text-primary mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span class="text-muted-foreground">{b}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold tracking-tight">
+          If you don't PAT test...
+        </h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <p class="text-muted-foreground mt-6 leading-relaxed">
+          Portable appliance testing, or PAT testing, is a major contributor to
+          ensuring safety at all times, and will enable your business to comply
+          with the legal standards. Failure to implement a programme of regular
+          appliance testing can lead to serious consequences, as well as
+          affecting insurance policies.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold tracking-tight">
+          Insurance claims can be refused.
+        </h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <p class="text-muted-foreground mt-6 leading-relaxed">
+          Most insurance companies will assume that the owners of a business
+          are compliant with all relevant regulations. <span
+            class="text-foreground font-semibold"
+          >
+            "Insurers are fully entitled to reduce, delay or even refuse to pay
+            on a claim for damage caused by a portable appliance that has not
+            been PAT tested."
+          </span>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold tracking-tight">Prosecution.</h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <p class="text-muted-foreground mt-6 leading-relaxed">
+          It is vital to provide a safe electrical environment for your staff
+          and visitors by PAT testing. <span
+            class="text-foreground font-semibold"
+          >
+            "Failure to comply can result in prosecution, fine and
+            or/imprisonment."
+          </span>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold tracking-tight">
+          Landlord legal requirements.
+        </h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <div class="mt-6 aspect-[16/9] overflow-hidden bg-muted">
+          <img
+            src="/landlord-legal-requirements.jpg"
+            alt="Landlord legal requirements"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <LandlordAccordion client:visible />
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold tracking-tight">
+          Get all your electrical equipment tested today.
+        </h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <p class="text-muted-foreground mt-6 leading-relaxed">
+          If you are a landlord or business owner and would like to find out
+          more about where your business stands with regards to electrical
+          safety, or if you think you could benefit from having your
+          electrical equipment PAT tested, please call us on
+          <a
+            href="tel:07729577307"
+            class="text-primary font-semibold hover:underline"
+          >
+            07729 577307
+          </a>
+          or email us via
+          <a
+            href="mailto:sales@fuseduk.co.uk"
+            class="text-primary font-semibold hover:underline"
+          >
+            sales@fuseduk.co.uk
+          </a>.
+        </p>
+      </section>
+
+      <div class="flex flex-wrap items-center gap-3 pt-4">
+        <BookNowButton client:load size="lg" />
+        <Button asChild client:load size="lg" variant="outline">
+          <a href="/quote">Get a Quote</a>
+        </Button>
+      </div>
+    </div>
+  </article>
+</Layout>

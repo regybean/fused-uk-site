@@ -1,0 +1,138 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/why-pat", label: "Why PAT Test" },
+  { href: "/about", label: "About Us" },
+  { href: "/quote", label: "Get a Quote" },
+]
+const year = new Date().getFullYear()
+---
+
+<footer class="bg-neutral-950 text-white">
+  <div class="mx-auto max-w-[1200px] px-4 py-14 md:px-6">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-4">
+      <div class="space-y-4">
+        <img src="/fused-uk-logo.jpg" alt="FUSED UK" class="h-10 w-auto" />
+        <address class="text-sm not-italic leading-relaxed text-white/70">
+          FUSED UK Electrical Ltd<br />
+          8 Nelson Court, Methley,<br />
+          Leeds, LS26 9LJ
+        </address>
+        <p class="text-xs leading-relaxed text-white/50">
+          Registered in England &amp; Wales No: 10843606<br />
+          VAT No: 320977105
+        </p>
+      </div>
+
+      <div>
+        <h4 class="mb-4 text-xs font-semibold tracking-widest text-white/50 uppercase">
+          Site
+        </h4>
+        <ul class="space-y-2 text-sm">
+          {
+            links.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  class="text-white/80 transition-colors hover:text-primary"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="mb-4 text-xs font-semibold tracking-widest text-white/50 uppercase">
+          Contact
+        </h4>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href="tel:07729577307"
+              class="text-white/80 hover:text-primary"
+            >
+              07729 577307
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:sales@fuseduk.co.uk"
+              class="text-white/80 hover:text-primary"
+            >
+              sales@fuseduk.co.uk
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="mb-4 text-xs font-semibold tracking-widest text-white/50 uppercase">
+          Follow
+        </h4>
+        <div class="flex items-center gap-3">
+          <a
+            href="https://www.facebook.com/fuseduk"
+            aria-label="Facebook"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex size-10 items-center justify-center transition-transform hover:scale-105"
+            style="background-color:#1877F2;color:#fff;"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+              ><path
+                d="M13.5 21v-7.5h2.55l.38-2.95H13.5V8.66c0-.85.24-1.43 1.46-1.43h1.55V4.6a20.7 20.7 0 0 0-2.27-.12c-2.25 0-3.79 1.37-3.79 3.88v2.18H7.9v2.95h2.55V21h3.05z"
+              ></path></svg
+            >
+          </a>
+          <a
+            href="https://twitter.com/Fuseduk"
+            aria-label="X / Twitter"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex size-10 items-center justify-center bg-black text-white ring-1 ring-white/20 transition-transform hover:scale-105"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+              ><path
+                d="M18.244 2H21l-6.55 7.49L22 22h-6.18l-4.84-6.32L5.4 22H2.64l7-8.01L2 2h6.34l4.37 5.79L18.244 2zm-1.08 18h1.7L7.94 4H6.16l11.004 16z"
+              ></path></svg
+            >
+          </a>
+          <a
+            href="https://www.instagram.com/fuseduk"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex size-10 items-center justify-center text-white transition-transform hover:scale-105"
+            style="background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path
+                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+              ></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
+      <p>© {year} FUSED UK Electrical Ltd</p>
+      <div class="flex gap-5">
+        <a href="/terms" class="hover:text-white">Terms &amp; Conditions</a>
+        <a href="/privacy" class="hover:text-white">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

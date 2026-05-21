@@ -1,0 +1,140 @@
+---
+import Layout from "@/layouts/main.astro"
+import Eyebrow from "@/components/site/Eyebrow.astro"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { BookNowButton } from "@/components/site/BookNowButton"
+
+const mailto =
+  "mailto:sales@fuseduk.co.uk?subject=PAT%20Testing%20Quote%20Request&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0AAddress%3A%0AType%20of%20business%3A%0ATest%20due%20date%3A%0ANumber%20of%20tests%20required%3A%0AHow%20did%20you%20hear%20about%20us%3F%3A%0A"
+---
+
+<Layout title="Get a Quote — FUSED UK">
+  <section class="border-b">
+    <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-20">
+      <Eyebrow>Quotes</Eyebrow>
+      <h1 class="mt-3 text-center text-4xl font-semibold tracking-tight md:text-5xl">
+        Get a Quote
+      </h1>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-24">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-lg leading-relaxed">
+        Our quotation is based on the number of tests required. We aim to beat
+        any genuine comparable offer with no hidden charges and no VAT.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {/* 1. Email */}
+      <Card className="md:col-span-3">
+        <CardContent className="flex flex-col items-start gap-6 p-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <div class="text-primary text-xs font-semibold tracking-widest uppercase">
+              Recommended
+            </div>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+              Email us
+            </h2>
+            <p class="text-muted-foreground mt-3 max-w-md leading-relaxed">
+              Open a pre-filled quote request in your email client — fill in the
+              blanks and send.
+            </p>
+          </div>
+          <Button asChild client:load size="lg" className="px-6">
+            <a href={mailto}>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Open email template
+            </a>
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* 2. Call */}
+      <Card>
+        <CardContent className="flex h-full flex-col gap-4 p-8">
+          <div
+            class="bg-secondary text-secondary-foreground inline-flex size-12 items-center justify-center rounded-full"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+          </div>
+          <div class="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
+            Call us
+          </div>
+          <a
+            href="tel:07729577307"
+            class="text-3xl font-semibold tracking-tight hover:text-primary"
+          >
+            07729 577307
+          </a>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            One ring and you're talking to an engineer, not an inbox.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* 3. Book Now */}
+      <Card className="md:col-span-2">
+        <CardContent className="flex h-full flex-col gap-4 p-8">
+          <div
+            class="bg-primary text-primary-foreground inline-flex size-12 items-center justify-center rounded-full"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </div>
+          <div class="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
+            Book today
+          </div>
+          <h3 class="text-2xl font-semibold tracking-tight">Same-day callout</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            Need it done now? Get straight on the books — flexible after-hours
+            and weekend testing across the UK.
+          </p>
+          <div class="mt-auto pt-2">
+            <BookNowButton client:load size="lg" />
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</Layout>

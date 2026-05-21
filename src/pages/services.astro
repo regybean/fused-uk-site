@@ -1,0 +1,136 @@
+---
+import Layout from "@/layouts/main.astro"
+import TickList from "@/components/site/TickList.astro"
+import Eyebrow from "@/components/site/Eyebrow.astro"
+import CtaBand from "@/components/site/CtaBand.astro"
+
+const services = [
+  {
+    n: "01",
+    title: "Fully Inclusive PAT Testing",
+    body: "Inspection and safety testing of portable appliances with the latest computerised equipment. Testing follows IEE Code of Practice standards. Minor repairs and replacement fuses/IT leads are provided at no charge.",
+    image: "/iet-code-of-practice.jpg",
+  },
+  {
+    n: "02",
+    title: "Microwave Leakage Testing",
+    body: "Radiation intensity assessments are conducted, with reports detailing mW/cm2 output levels.",
+    image: "/microwave-leakage-test.jpg",
+  },
+  {
+    n: "03",
+    title: "Emergency Light Testing",
+    body: "The company provides inspection and testing for 6-monthly and annual compliance periods, typically running the full 3-hour rated duration. Services include verifying correct fixture placement and signage.",
+    image: null,
+  },
+  {
+    n: "04",
+    title: "Cable Repairs",
+    body: "The majority of items which fail a visual PAT testing inspection are due to damaged cable and flex. FUSED UK offers replacement services for worn equipment like vacuums and 110v site gear.",
+    image: "/cable-repairs.jpg",
+  },
+  {
+    n: "05",
+    title: "Free Reminder Renewal Service",
+    body: "Automatic contact system ensures certification renewal scheduling and prevents expiration.",
+    image: null,
+  },
+  {
+    n: "06",
+    title: "Asset Reports and Certification",
+    body: "Detailed electrical testing reports list all tested assets. Deliverables include an itemised appliance register, PAT testing certificate, and passed/failed item lists—provided free in bound folders or digitally.",
+    image: "/asset-certifications.jpg",
+  },
+]
+
+const closing = [
+  "No hidden charges on quotes",
+  "DBS-checked engineers approved for schools, hospitals, and residences",
+]
+---
+
+<Layout title="Services — FUSED UK PAT Testing">
+  <section class="border-b">
+    <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-20">
+      <Eyebrow>Services</Eyebrow>
+      <h1 class="mt-3 text-center text-4xl font-semibold tracking-tight md:text-5xl">
+        Services
+      </h1>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-24">
+    <div class="flex flex-col gap-20 md:gap-28">
+      {
+        services.map((s, idx) => (
+          <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <div
+              class:list={[
+                "order-2",
+                idx % 2 === 1 ? "md:order-2" : "md:order-1",
+              ]}
+            >
+              <div class="text-primary/40 font-mono text-sm font-semibold tracking-widest">
+                {s.n}
+              </div>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+                {s.title}
+              </h2>
+              <div class="bg-primary mt-4 h-1 w-12"></div>
+              <p class="text-muted-foreground mt-6 text-base leading-relaxed">
+                {s.body}
+              </p>
+            </div>
+            <div
+              class:list={[
+                "order-1",
+                idx % 2 === 1 ? "md:order-1" : "md:order-2",
+              ]}
+            >
+              {s.image ? (
+                <div class="aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    loading="lazy"
+                    class="h-full w-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div class="aspect-[4/3] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-transparent">
+                  <span class="text-primary/30 font-mono text-7xl font-bold tracking-tight md:text-8xl">
+                    {s.n}
+                  </span>
+                </div>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <section class="border-y bg-muted/30">
+    <div class="mx-auto max-w-[1200px] px-4 py-14 md:px-6 md:py-16">
+      <TickList items={closing} class="mb-6" />
+      <p class="text-muted-foreground text-sm">
+        Contact:
+        <a
+          href="tel:07729577307"
+          class="text-foreground hover:text-primary font-semibold"
+        >
+          07729 577307
+        </a>
+        or
+        <a
+          href="mailto:sales@fuseduk.co.uk"
+          class="text-foreground hover:text-primary font-semibold"
+        >
+          sales@fuseduk.co.uk
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

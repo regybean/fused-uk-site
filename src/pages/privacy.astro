@@ -1,0 +1,112 @@
+---
+import Layout from "@/layouts/main.astro"
+import Eyebrow from "@/components/site/Eyebrow.astro"
+
+const principles = [
+  "Fairly and lawfully processed",
+  "Processed for limited purposes",
+  "Adequate, relevant and not excessive",
+  "Accurate",
+  "Not kept longer than necessary",
+  "Processed in accordance with the data subject's rights",
+  "Secure",
+  "Not transferred to countries without adequate protection",
+]
+---
+
+<Layout title="Privacy Policy — FUSED UK">
+  <section class="border-b">
+    <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-20">
+      <Eyebrow>Legal</Eyebrow>
+      <h1 class="mt-3 text-center text-4xl font-semibold tracking-tight md:text-5xl">
+        Privacy Policy
+      </h1>
+    </div>
+  </section>
+
+  <article class="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
+    <div class="space-y-8 leading-relaxed">
+      <p class="text-muted-foreground">
+        FUSED UK Ltd prioritizes privacy and confidentiality in accordance with
+        the United Kingdom Data Protection Act 1998. The company commits to
+        ensuring personal data is:
+      </p>
+      <ul class="space-y-2.5">
+        {
+          principles.map((p) => (
+            <li class="flex items-start gap-3 text-sm leading-relaxed sm:text-base">
+              <span class="bg-primary/10 text-primary mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <span class="text-muted-foreground">{p}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">
+          Registration and Communications
+        </h2>
+        <div class="bg-primary mt-2 h-1 w-10"></div>
+        <p class="text-muted-foreground mt-4">
+          When you register details on the website, information is securely
+          retained. The organization may send correspondence by post or email.
+          You may request removal from the mailing list at any time.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">
+          Internet Security Notice
+        </h2>
+        <div class="bg-primary mt-2 h-1 w-10"></div>
+        <p class="text-muted-foreground mt-4">
+          "No data transmission over the internet can be guaranteed to be 100%
+          secure, as such we will strive to protect your personal information
+          but cannot ensure the security of any information you transmit to us
+          and you do so at your own risk."
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">Data Sharing</h2>
+        <div class="bg-primary mt-2 h-1 w-10"></div>
+        <p class="text-muted-foreground mt-4">
+          The company does not share personal details with third parties.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">
+          Contact for Concerns
+        </h2>
+        <div class="bg-primary mt-2 h-1 w-10"></div>
+        <p class="text-muted-foreground mt-4">
+          For inquiries about personal information, reach out at
+          <a
+            href="tel:07729577307"
+            class="text-primary font-semibold hover:underline"
+          >
+            07729 577307
+          </a>.
+        </p>
+      </section>
+
+      <p class="text-foreground border-t pt-6 text-sm font-medium">
+        FUSED UK Electrical Ltd - Company Registration No 10843606.
+      </p>
+    </div>
+  </article>
+</Layout>

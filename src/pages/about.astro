@@ -1,0 +1,215 @@
+---
+import Layout from "@/layouts/main.astro"
+import TickList from "@/components/site/TickList.astro"
+import Eyebrow from "@/components/site/Eyebrow.astro"
+import { Card, CardContent } from "@/components/ui/card"
+
+const offer = [
+  "Cost-effective solutions throughout the UK, particularly Leeds, Wakefield, and West Yorkshire",
+  "Fully calibrated, up-to-date equipment",
+  "Tailored testing regimes, safety certificates, and reports provided at no charge",
+]
+
+const dbs = [
+  "All engineers are DBS checked for work in private residences, schools, hospitals, and vulnerable populations",
+  "Fully insured up to £5 million",
+]
+
+const features = [
+  "Same-day callout availability",
+  "Flexible after-hours and weekend testing",
+  "On-time guarantee across the UK",
+]
+
+const contact = [
+  {
+    label: "Phone",
+    value: "07729 577307",
+    href: "tel:07729577307",
+    color: "bg-secondary text-secondary-foreground",
+    icon: "phone",
+  },
+  {
+    label: "Email",
+    value: "sales@fuseduk.co.uk",
+    href: "mailto:sales@fuseduk.co.uk",
+    color: "bg-accent text-accent-foreground",
+    icon: "mail",
+  },
+  {
+    label: "Address",
+    value: "8 Nelson Court, Methley, Leeds, LS26 9LJ",
+    href: null,
+    color: "bg-primary text-primary-foreground",
+    icon: "pin",
+  },
+]
+---
+
+<Layout title="About — FUSED UK">
+  <section class="border-b">
+    <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-20">
+      <Eyebrow>About</Eyebrow>
+      <h1 class="mt-3 text-center text-4xl font-semibold tracking-tight md:text-5xl">
+        About FUSED UK
+      </h1>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-24">
+    <div class="aspect-[21/9] overflow-hidden bg-muted">
+      <img
+        src="/3-person-team.jpg"
+        alt="The FUSED UK team"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
+    <div class="mt-12 grid gap-12 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <p class="text-lg leading-relaxed">
+          The company is headed by owner Jason Bolton and his team of
+          experienced engineers with extensive portable appliance testing
+          industry experience. They emphasize providing prompt, professional,
+          and reliable service with customer guidance on PAT testing
+          obligations.
+        </p>
+      </div>
+      <div class="bg-primary/5 border-primary/20 border-l-4 p-6">
+        <p class="text-primary text-xs font-semibold tracking-widest uppercase">
+          Mission
+        </p>
+        <p class="mt-3 text-sm leading-relaxed">
+          FUSED UK will provide a prompt, professional service and work
+          flexible hours to suit customers' needs with minimum disruption to
+          the workplace within the field of electrical health and safety.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-20 grid gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">What we offer</h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <TickList items={offer} class="mt-6" />
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">
+          DBS-checked engineers
+        </h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <div class="mt-6 flex items-start gap-4">
+          <img
+            src="/disclosure-and-barring-service.png"
+            alt="Disclosure and Barring Service"
+            class="h-16 w-auto shrink-0"
+          />
+          <TickList items={dbs} class="flex-1" />
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-20 grid gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">Who we work with</h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <p class="text-muted-foreground mt-6 leading-relaxed">
+          The company serves GP surgeries, schools, nurseries, shops,
+          restaurants, and hairdressers.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">Service features</h2>
+        <div class="bg-primary mt-3 h-1 w-12"></div>
+        <TickList items={features} class="mt-6" />
+      </div>
+    </div>
+
+    <div class="mt-24">
+      <Eyebrow>Get in touch</Eyebrow>
+      <h2 class="mt-3 text-center text-3xl font-semibold tracking-tight md:text-4xl">
+        Contact
+      </h2>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        {
+          contact.map((c) => {
+            const Wrapper: any = c.href ? "a" : "div"
+            return (
+              <Card className="h-full">
+                <CardContent className="flex h-full flex-col gap-4 p-6">
+                  <span
+                    class:list={[
+                      "inline-flex size-12 items-center justify-center rounded-full",
+                      c.color,
+                    ]}
+                  >
+                    {c.icon === "phone" && (
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    )}
+                    {c.icon === "mail" && (
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                      </svg>
+                    )}
+                    {c.icon === "pin" && (
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    )}
+                  </span>
+                  <div class="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
+                    {c.label}
+                  </div>
+                  {c.href ? (
+                    <Wrapper
+                      href={c.href}
+                      class="text-lg font-medium hover:text-primary"
+                    >
+                      {c.value}
+                    </Wrapper>
+                  ) : (
+                    <p class="text-lg font-medium leading-snug">{c.value}</p>
+                  )}
+                </CardContent>
+              </Card>
+            )
+          })
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
