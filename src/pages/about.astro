@@ -1,5 +1,9 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { Image } from "astro:assets"
+import dbsLight from "@/assets/disclosure-and-barring-service.png"
+import dbsDark from "@/assets/disclosure-barring-service-dark.png"
+import teamPhoto from "@/assets/3-person-team.jpg"
 import TickList from "@/components/site/TickList.astro"
 import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Card, CardContent } from "@/components/ui/card"
@@ -59,9 +63,10 @@ const contact = [
 
   <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-24">
     <div class="aspect-[21/9] overflow-hidden bg-muted">
-      <img
-        src="/3-person-team.jpg"
+      <Image
+        src={teamPhoto}
         alt="The FUSED UK team"
+        loading="eager"
         class="h-full w-full object-cover"
       />
     </div>
@@ -101,10 +106,17 @@ const contact = [
         </h2>
         <div class="bg-primary mt-3 h-1 w-20"></div>
         <div class="mt-6 flex items-start gap-4">
-          <img
-            src="/disclosure-and-barring-service.png"
+          <Image
+            src={dbsLight}
             alt="Disclosure and Barring Service"
-            class="h-16 w-auto shrink-0"
+            loading="lazy"
+            class="h-16 w-auto shrink-0 dark:hidden"
+          />
+          <Image
+            src={dbsDark}
+            alt="Disclosure and Barring Service"
+            loading="lazy"
+            class="hidden h-16 w-auto shrink-0 dark:block"
           />
           <TickList items={dbs} class="flex-1" />
         </div>

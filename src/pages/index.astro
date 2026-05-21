@@ -1,5 +1,10 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { Image } from "astro:assets"
+import ietCodeOfPractice from "@/assets/iet-code-of-practice.jpg"
+import microwaveLeakage from "@/assets/microwave-leakage-test.jpg"
+import dbsLight from "@/assets/disclosure-and-barring-service.png"
+import dbsDark from "@/assets/disclosure-barring-service-dark.png"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -24,12 +29,12 @@ const services = [
   {
     title: "Fully Inclusive PAT Testing",
     body: "Inspection and safety testing of portable appliances with the latest computerised equipment. Testing follows IEE Code of Practice standards. Minor repairs and replacement fuses/IT leads are provided at no charge.",
-    image: "/iet-code-of-practice.jpg",
+    image: ietCodeOfPractice,
   },
   {
     title: "Microwave Leakage Testing",
     body: "Radiation intensity assessments are conducted, with reports detailing mW/cm2 output levels.",
-    image: "/microwave-leakage-test.jpg",
+    image: microwaveLeakage,
   },
   {
     title: "Emergency Light Testing",
@@ -128,7 +133,7 @@ const whyPat = [
           <Card className="overflow-hidden pt-0 pb-0">
             {s.image ? (
               <div class="aspect-[4/3] overflow-hidden bg-muted">
-                <img
+                <Image
                   src={s.image}
                   alt={s.title}
                   loading="lazy"
@@ -233,10 +238,17 @@ const whyPat = [
   {/* 7. Trust strip */}
   <section class="border-b">
     <div class="mx-auto flex max-w-[1200px] flex-col items-center justify-center gap-6 px-4 py-10 sm:flex-row sm:gap-10 md:px-6">
-      <img
-        src="/disclosure-and-barring-service.png"
+      <Image
+        src={dbsLight}
         alt="Disclosure and Barring Service"
-        class="h-14 w-auto md:h-16"
+        loading="lazy"
+        class="h-14 w-auto md:h-16 dark:hidden"
+      />
+      <Image
+        src={dbsDark}
+        alt="Disclosure and Barring Service"
+        loading="lazy"
+        class="hidden h-14 w-auto md:h-16 dark:block"
       />
       <Badge
         variant="secondary"

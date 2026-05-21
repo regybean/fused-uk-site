@@ -1,5 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { Image } from "astro:assets"
+import landlordLegal from "@/assets/landlord-legal-requirements.jpg"
 import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Button } from "@/components/ui/button"
 import { BookNowButton } from "@/components/site/BookNowButton"
@@ -131,8 +133,8 @@ const hsBullets = [
         </h2>
         <div class="bg-primary mt-3 h-1 w-12"></div>
         <div class="mt-6 aspect-[16/9] overflow-hidden bg-muted">
-          <img
-            src="/landlord-legal-requirements.jpg"
+          <Image
+            src={landlordLegal}
             alt="Landlord legal requirements"
             loading="lazy"
             class="h-full w-full object-cover"

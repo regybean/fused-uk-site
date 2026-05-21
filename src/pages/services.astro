@@ -1,5 +1,10 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { Image } from "astro:assets"
+import ietCodeOfPractice from "@/assets/iet-code-of-practice.jpg"
+import microwaveLeakage from "@/assets/microwave-leakage-test.jpg"
+import cableRepairs from "@/assets/cable-repairs.jpg"
+import assetCertifications from "@/assets/asset-certifications.jpg"
 import TickList from "@/components/site/TickList.astro"
 import Eyebrow from "@/components/site/Eyebrow.astro"
 import CtaBand from "@/components/site/CtaBand.astro"
@@ -9,13 +14,13 @@ const services = [
     n: "01",
     title: "Fully Inclusive PAT Testing",
     body: "Inspection and safety testing of portable appliances with the latest computerised equipment. Testing follows IEE Code of Practice standards. Minor repairs and replacement fuses/IT leads are provided at no charge.",
-    image: "/iet-code-of-practice.jpg",
+    image: ietCodeOfPractice,
   },
   {
     n: "02",
     title: "Microwave Leakage Testing",
     body: "Radiation intensity assessments are conducted, with reports detailing mW/cm2 output levels.",
-    image: "/microwave-leakage-test.jpg",
+    image: microwaveLeakage,
   },
   {
     n: "03",
@@ -27,7 +32,7 @@ const services = [
     n: "04",
     title: "Cable Repairs",
     body: "The majority of items which fail a visual PAT testing inspection are due to damaged cable and flex. FUSED UK offers replacement services for worn equipment like vacuums and 110v site gear.",
-    image: "/cable-repairs.jpg",
+    image: cableRepairs,
   },
   {
     n: "05",
@@ -39,7 +44,7 @@ const services = [
     n: "06",
     title: "Asset Reports and Certification",
     body: "Detailed electrical testing reports list all tested assets. Deliverables include an itemised appliance register, PAT testing certificate, and passed/failed item lists—provided free in bound folders or digitally.",
-    image: "/asset-certifications.jpg",
+    image: assetCertifications,
   },
 ]
 
@@ -90,7 +95,7 @@ const closing = [
             >
               {s.image ? (
                 <div class="aspect-[4/3] overflow-hidden bg-muted">
-                  <img
+                  <Image
                     src={s.image}
                     alt={s.title}
                     loading="lazy"
