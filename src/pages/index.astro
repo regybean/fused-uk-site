@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { BookNowButton } from "@/components/site/BookNowButton"
-import { PhotoCarousel } from "@/components/site/PhotoCarousel"
+import { HeroCarousel } from "@/components/site/HeroCarousel"
 import { ReviewsCarousel } from "@/components/site/ReviewsCarousel"
 import TickList from "@/components/site/TickList.astro"
 import Eyebrow from "@/components/site/Eyebrow.astro"
@@ -59,14 +59,10 @@ const whyPat = [
 ---
 
 <Layout>
-  {/* 1. Hero */}
-  <section class="relative isolate overflow-hidden">
+  {/* 1. Hero carousel */}
+  <section class="relative isolate overflow-hidden bg-neutral-950">
     <div class="absolute inset-0 -z-10">
-      <img
-        src="/blurred-workspace-with-f-uk-overlay.jpeg"
-        alt=""
-        class="h-full w-full object-cover"
-      />
+      <HeroCarousel client:load />
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75"></div>
     </div>
 
@@ -182,10 +178,9 @@ const whyPat = [
     </div>
   </section>
 
-  {/* 4. Photo carousel */}
-  <section class="bg-neutral-950">
-    <PhotoCarousel client:visible />
-  </section>
+  <div class="mx-auto max-w-[1200px] px-4 md:px-6">
+    <hr class="border-border" />
+  </div>
 
   {/* 5. Why PAT Test? teaser */}
   <section class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-24">
