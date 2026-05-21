@@ -3,8 +3,16 @@ import { BookNowButton } from "./BookNowButton"
 import { Button } from "@/components/ui/button"
 ---
 
-<section class="bg-neutral-950 text-white">
-  <div class="mx-auto max-w-[1200px] px-4 py-16 text-center md:px-6 md:py-20">
+<section
+  class="relative overflow-hidden bg-neutral-900 text-white"
+  style="background-image: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,0.04), transparent 70%), linear-gradient(to bottom, #1a1a1a 0%, #0f0f0f 100%);"
+>
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+    style="background: linear-gradient(to right, transparent, var(--color-primary, #f5b400) 50%, transparent);"
+  >
+  </div>
+  <div class="relative mx-auto max-w-[1200px] px-4 py-16 text-center md:px-6 md:py-20">
     <p
       class="text-primary text-xs font-semibold tracking-[0.2em] uppercase"
     >
