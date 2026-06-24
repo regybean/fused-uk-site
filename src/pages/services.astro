@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { Image } from "astro:assets"
-import ietCodeOfPractice from "@/assets/iet-code-of-practice.jpg"
+import ietCodeOfPractice from "@/assets/iet-code-of-practice-5th-edition.png"
 import microwaveLeakage from "@/assets/microwave-leakage-test.jpg"
 import cableRepairs from "@/assets/cable-repairs.jpg"
 import assetCertifications from "@/assets/asset-certifications.jpg"
@@ -15,36 +15,48 @@ const services = [
     title: "Fully Inclusive PAT Testing",
     body: "Inspection and safety testing of portable appliances with the latest computerised equipment. Testing follows IEE Code of Practice standards. Minor repairs and replacement fuses/IT leads are provided at no charge.",
     image: ietCodeOfPractice,
+    featured: true,
+    placeholder: null,
   },
   {
     n: "02",
-    title: "Microwave Leakage Testing",
-    body: "Radiation intensity assessments are conducted, with reports detailing mW/cm2 output levels.",
-    image: microwaveLeakage,
+    title: "Cable Repairs",
+    body: "The majority of items which fail a visual PAT testing inspection are due to damaged cable and flex. Heavily used items such as vacuums and 110v site equipment can all be damaged through general wear and tear. Replacement of cable/flex can be undertaken by Fused UK.",
+    image: cableRepairs,
+    featured: false,
+    placeholder: null,
   },
   {
     n: "03",
-    title: "Emergency Light Testing",
-    body: "The company provides inspection and testing for 6-monthly and annual compliance periods, typically running the full 3-hour rated duration. Services include verifying correct fixture placement and signage.",
-    image: null,
+    title: "Asset Reports and Certification",
+    body: "To accompany your annual PAT test certificate, our engineers will produce a detailed electrical testing report that lists all the assets tested. This report will also help towards documenting your asset lists in case of audit/inspection. Customers are supplied with an itemised appliance register, Certificate of PAT testing and list of failed and passed items. Reports are provided free of charge in a bound folder (where appropriate) and can also be provided via pdf.",
+    image: assetCertifications,
+    featured: false,
+    placeholder: null,
   },
   {
     n: "04",
-    title: "Cable Repairs",
-    body: "The majority of items which fail a visual PAT testing inspection are due to damaged cable and flex. FUSED UK offers replacement services for worn equipment like vacuums and 110v site gear.",
-    image: cableRepairs,
-  },
-  {
-    n: "05",
     title: "Free Reminder Renewal Service",
     body: "Automatic contact system ensures certification renewal scheduling and prevents expiration.",
     image: null,
+    featured: false,
+    placeholder: "CLIENT TO PROVIDE: renewal reminder / calendar image",
+  },
+  {
+    n: "05",
+    title: "Microwave Leakage Testing",
+    body: "Radiation intensity assessments are conducted, with reports detailing mW/cm2 output levels.",
+    image: microwaveLeakage,
+    featured: false,
+    placeholder: null,
   },
   {
     n: "06",
-    title: "Asset Reports and Certification",
-    body: "Detailed electrical testing reports list all tested assets. Deliverables include an itemised appliance register, PAT testing certificate, and passed/failed item lists—provided free in bound folders or digitally.",
-    image: assetCertifications,
+    title: "Emergency Light Testing",
+    body: "The company provides inspection and testing for 6-monthly and annual compliance periods, typically running the full 3-hour rated duration. Services include verifying correct fixture placement and signage.",
+    image: null,
+    featured: false,
+    placeholder: "CLIENT TO PROVIDE: emergency light testing photo",
   },
 ]
 
@@ -69,16 +81,27 @@ const closing = [
     <div class="flex flex-col gap-20 md:gap-28">
       {
         services.map((s, idx) => (
-          <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+          <article
+            class:list={[
+              "grid items-center gap-10 md:grid-cols-2 md:gap-16",
+              s.featured && "border-primary border-l-4 pl-6 md:pl-10",
+            ]}
+          >
             <div
               class:list={[
                 "order-2",
                 idx % 2 === 1 ? "md:order-2" : "md:order-1",
               ]}
             >
-              <div class="text-primary/40 font-mono text-sm font-semibold tracking-widest">
-                {s.n}
-              </div>
+              {s.featured ? (
+                <div class="text-primary text-xs font-semibold tracking-[0.2em] uppercase">
+                  Our core service
+                </div>
+              ) : (
+                <div class="text-primary/40 font-mono text-sm font-semibold tracking-widest">
+                  {s.n}
+                </div>
+              )}
               <h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
                 {s.title}
               </h2>
@@ -103,9 +126,9 @@ const closing = [
                   />
                 </div>
               ) : (
-                <div class="aspect-[4/3] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-transparent">
-                  <span class="text-primary/30 font-mono text-7xl font-bold tracking-tight md:text-8xl">
-                    {s.n}
+                <div class="aspect-[4/3] flex items-center justify-center overflow-hidden border border-dashed border-primary/30 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-6 text-center">
+                  <span class="text-primary/50 text-sm font-medium">
+                    [{s.placeholder}]
                   </span>
                 </div>
               )}

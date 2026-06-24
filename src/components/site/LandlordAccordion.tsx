@@ -71,9 +71,13 @@ export function LandlordAccordion() {
     <Accordion type="single" collapsible className="mt-6" defaultValue="l1">
       {items.map((it) => (
         <AccordionItem key={it.value} value={it.value}>
-          <AccordionTrigger className="text-left">{it.title}</AccordionTrigger>
+          <AccordionTrigger className="text-left text-base font-semibold">
+            {it.title}
+          </AccordionTrigger>
           <AccordionContent>
-            <p className="text-muted-foreground leading-relaxed">{it.body}</p>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              {it.body}
+            </p>
           </AccordionContent>
         </AccordionItem>
       ))}

@@ -8,9 +8,9 @@ import {
 } from "@/components/ui/carousel"
 
 const images = [
-  { src: "/fused-uk-pat-testing-slide-1.jpg", alt: "FUSED UK PAT testing slide 1" },
-  { src: "/fused-uk-pat-testing-slide-2.jpg", alt: "FUSED UK PAT testing slide 2" },
-  { src: "/fused-uk-pat-testing-slide-3.jpg", alt: "FUSED UK PAT testing slide 3" },
+  { src: "/testing-pat-machine.jpg", alt: "FUSED UK PAT testing equipment in use on site" },
+  { src: "/testing-school.jpg", alt: "FUSED UK engineer PAT testing appliances in a school" },
+  { src: "/man-working.jpeg", alt: "FUSED UK engineer carrying out PAT testing" },
 ]
 
 export function HeroCarousel() {

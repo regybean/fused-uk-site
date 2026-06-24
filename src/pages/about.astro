@@ -10,20 +10,19 @@ import { Card, CardContent } from "@/components/ui/card"
 import { MAILTO } from "@/lib/contact"
 
 const offer = [
-  "Cost-effective solutions throughout the UK, particularly Leeds, Wakefield, and West Yorkshire",
+  "Based in Leeds, we provide professional electrical testing solutions",
   "Fully calibrated, up-to-date equipment",
   "Tailored testing regimes, safety certificates, and reports provided at no charge",
 ]
 
 const dbs = [
   "All engineers are DBS checked for work in private residences, schools, hospitals, and vulnerable populations",
-  "Fully insured up to £5 million",
 ]
 
 const features = [
   "Same-day callout availability",
   "Flexible after-hours and weekend testing",
-  "On-time guarantee across the UK",
+  "Professional service with minimal disruption to the workplace",
 ]
 
 const contact = [
@@ -67,7 +66,7 @@ const contact = [
         src={teamPhoto}
         alt="The FUSED UK team"
         loading="eager"
-        class="h-full w-full object-cover"
+        class="h-full w-full object-cover object-top"
       />
     </div>
 
@@ -128,8 +127,10 @@ const contact = [
         <h2 class="text-2xl font-semibold tracking-tight">Who we work with</h2>
         <div class="bg-primary mt-3 h-1 w-20"></div>
         <p class="text-muted-foreground mt-6 leading-relaxed">
-          The company serves GP surgeries, schools, nurseries, shops,
-          restaurants, and hairdressers.
+          Our customer base is continually expanding and we provide electrical
+          testing services to a range of customers including but not limited to
+          GP surgeries, schools, nurseries, shops, restaurants, facility
+          management companies and factories.
         </p>
       </div>
 
@@ -137,6 +138,49 @@ const contact = [
         <h2 class="text-2xl font-semibold tracking-tight">Service features</h2>
         <div class="bg-primary mt-3 h-1 w-20"></div>
         <TickList items={features} variant="brand" class="mt-6" />
+      </div>
+    </div>
+
+    {/* Some clients we work with */}
+    <div class="mt-20">
+      <h2 class="text-2xl font-semibold tracking-tight">
+        Some clients we work with
+      </h2>
+      <div class="bg-primary mt-3 h-1 w-20"></div>
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {
+          Array.from({ length: 4 }).map(() => (
+            <div class="flex aspect-[3/2] items-center justify-center border border-dashed border-primary/30 bg-muted/30 p-4 text-center">
+              <span class="text-primary/50 text-xs font-medium">
+                [CLIENT TO PROVIDE: client logo — e.g. NHS, Arc Inspirations]
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Testing photos */}
+    <div class="mt-20">
+      <h2 class="text-2xl font-semibold tracking-tight">FUSED UK at work</h2>
+      <div class="bg-primary mt-3 h-1 w-20"></div>
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          [
+            { src: "/testing-pat-machine.jpg", alt: "PAT testing equipment in use" },
+            { src: "/testing-school.jpg", alt: "PAT testing appliances in a school" },
+            { src: "/testing-faults.jpg", alt: "Examples of faults found during PAT testing" },
+          ].map((p) => (
+            <div class="aspect-[4/3] overflow-hidden bg-muted">
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
 
