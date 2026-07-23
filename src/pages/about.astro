@@ -3,11 +3,20 @@ import Layout from "@/layouts/main.astro"
 import { Image } from "astro:assets"
 import dbsLight from "@/assets/disclosure-and-barring-service.png"
 import dbsDark from "@/assets/disclosure-barring-service-dark.png"
-import teamPhoto from "@/assets/3-person-team.jpg"
+import atWork from "@/assets/at-work-testing.jpg"
 import TickList from "@/components/site/TickList.astro"
 import Eyebrow from "@/components/site/Eyebrow.astro"
 import { Card, CardContent } from "@/components/ui/card"
+import { BookNowCardTrigger } from "@/components/site/BookNowCardTrigger"
 import { MAILTO } from "@/lib/contact"
+
+const clientLogos = [
+  { src: "/clients/nhs.png", alt: "NHS" },
+  { src: "/clients/arc-inspirations.png", alt: "Arc Inspirations" },
+  { src: "/clients/pinnacle.png", alt: "Pinnacle Group" },
+  { src: "/clients/st-annes.png", alt: "St Anne's Community Services" },
+  { src: "/clients/coral-island.png", alt: "Coral Island Blackpool" },
+]
 
 const offer = [
   "Based in Leeds, we provide professional electrical testing solutions",
@@ -20,8 +29,8 @@ const dbs = [
 ]
 
 const features = [
-  "Same-day callout availability",
   "Flexible after-hours and weekend testing",
+  "DBS-checked engineers for your peace of mind",
   "Professional service with minimal disruption to the workplace",
 ]
 
@@ -40,13 +49,6 @@ const contact = [
     color: "bg-accent text-accent-foreground",
     icon: "mail",
   },
-  {
-    label: "Address",
-    value: "8 Nelson Court, Methley, Leeds, LS26 9LJ",
-    href: null,
-    color: "bg-primary text-primary-foreground",
-    icon: "pin",
-  },
 ]
 ---
 
@@ -63,10 +65,10 @@ const contact = [
   <div class="mx-auto max-w-[1200px] px-4 py-16 md:px-6 md:py-24">
     <div class="aspect-[21/9] overflow-hidden bg-muted">
       <Image
-        src={teamPhoto}
-        alt="The FUSED UK team"
+        src={atWork}
+        alt="FUSED UK engineer carrying out PAT testing on site"
         loading="eager"
-        class="h-full w-full object-cover object-top"
+        class="h-full w-full object-cover object-center"
       />
     </div>
 
@@ -147,13 +149,16 @@ const contact = [
         Some clients we work with
       </h2>
       <div class="bg-primary mt-3 h-1 w-20"></div>
-      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {
-          Array.from({ length: 4 }).map(() => (
-            <div class="flex aspect-[3/2] items-center justify-center border border-dashed border-primary/30 bg-muted/30 p-4 text-center">
-              <span class="text-primary/50 text-xs font-medium">
-                [CLIENT TO PROVIDE: client logo — e.g. NHS, Arc Inspirations]
-              </span>
+          clientLogos.map((c) => (
+            <div class="flex aspect-[3/2] items-center justify-center border bg-white p-3 sm:p-4">
+              <img
+                src={c.src}
+                alt={c.alt}
+                loading="lazy"
+                class="max-h-20 w-auto max-w-full object-contain"
+              />
             </div>
           ))
         }
@@ -266,6 +271,17 @@ const contact = [
             )
           })
         }
+
+        <Card className="h-full">
+          <CardContent className="flex h-full flex-col gap-4 p-6">
+            <BookNowCardTrigger client:load />
+            <p class="text-muted-foreground text-sm leading-relaxed">
+              Flexible after-hours testing available to ensure minimal
+              disruption to the workplace — call or email and we'll come back to
+              you fast.
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   </div>

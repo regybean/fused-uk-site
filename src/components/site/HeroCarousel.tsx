@@ -9,7 +9,9 @@ import {
 
 const images = [
   { src: "/testing-pat-machine.jpg", alt: "FUSED UK PAT testing equipment in use on site" },
+  { src: "/testing-office.jpg", alt: "FUSED UK engineer PAT testing in an office" },
   { src: "/testing-school.jpg", alt: "FUSED UK engineer PAT testing appliances in a school" },
+  { src: "/microwave-leakage.jpg", alt: "FUSED UK microwave leakage testing" },
   { src: "/man-working.jpeg", alt: "FUSED UK engineer carrying out PAT testing" },
 ]
 

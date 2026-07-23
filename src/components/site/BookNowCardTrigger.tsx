@@ -9,7 +9,13 @@ import {
 } from "@/components/ui/dialog"
 import { PHONE, TEL, EMAIL, MAILTO } from "@/lib/contact"
 
-export function BookNowCardTrigger() {
+export function BookNowCardTrigger({
+  eyebrow = "Book today",
+  title = "Book now",
+}: {
+  eyebrow?: string
+  title?: string
+}) {
   const icon = (
     <svg
       width="22"
@@ -39,14 +45,14 @@ export function BookNowCardTrigger() {
         </button>
       </DialogTrigger>
       <div className="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
-        Book today
+        {eyebrow}
       </div>
       <DialogTrigger asChild>
         <button
           type="button"
           className="hover:text-primary cursor-pointer text-left text-2xl font-semibold tracking-tight"
         >
-          Same-day callout
+          {title}
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

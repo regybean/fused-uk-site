@@ -20,7 +20,7 @@ import { MAILTO, TEL, PHONE } from "@/lib/contact"
     <div class="mx-auto max-w-3xl">
       <p class="text-lg leading-relaxed">
         Our quotation is based on the number of tests required. We aim to beat
-        any genuine comparable offer with no hidden charges and no VAT.
+        any genuine comparable offer with no hidden charges.
       </p>
     </div>
 
@@ -104,10 +104,10 @@ import { MAILTO, TEL, PHONE } from "@/lib/contact"
       {/* 3. Book Now */}
       <Card className="h-full">
         <CardContent className="flex h-full flex-col gap-4 p-8">
-          <BookNowCardTrigger client:load />
+          <BookNowCardTrigger client:load title="Flexible after-hours" />
           <p class="text-muted-foreground text-sm leading-relaxed">
-            Need it done now? Get straight on the books — flexible after-hours
-            and weekend testing across the UK.
+            Flexible after-hours testing available to ensure minimal disruption
+            to the workplace — get straight on the books across the UK.
           </p>
         </CardContent>
       </Card>
